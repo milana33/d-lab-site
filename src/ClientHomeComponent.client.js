@@ -2,11 +2,12 @@
 "use client"
 
 import { useState} from 'react';
+import './main.css'
 // import { MantineLogo } from '@mantine/ds';
 import { Button,  Image } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 const { Header, Content, Footer } = Layout;
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Card,  Col, Row } from 'antd';
 
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import {
@@ -38,23 +39,34 @@ const items = [
   {
     label: 'Imprint',
     key: 'imprint',
-  },
-  {
-    label: (
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-          Navigation Four - Link
-        </a>
-    ),
-    key: 'alipay',
-  },
+  }
 ];
 
+// {
+//   label: (
+//       <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+//         Navigation Four - Link
+//       </a>
+//   ),
+//       key: 'alipay',
+// },
+
+const fontSettings = {
+  fontFamily: "Aeonik Pro, sans-serif",
+  fontWeight: 500,
+  fontSize: '18px'
+}
 
 const customTheme = {
   components: {
     Button: {
       defaultBorderColor: '#8347e5',
-      defaultColor:'#8347e5'
+      defaultColor:'#8347e5',
+
+    },
+    Menu: {
+      horizontalItemHoverBg: '#eee5ff',
+      horizontalItemSelectedColor: "#9c74da"
     },
   },
 };
@@ -72,6 +84,7 @@ function ClientHomeComponent() {
 
   return (
   <div>
+    <ConfigProvider theme={customTheme}>
     <Layout>
       <Header
           style={{
@@ -86,28 +99,43 @@ function ClientHomeComponent() {
       >
         <div>
         <img
-            src="/d-lab-2.png"
+            src="/d_lab.png"
             width="100px"
             style={{marginTop: '15px'}}
         />
         </div>
-        <Menu style={{ minWidth: '80%'}} onClick={onClick} selectedKeys={[current]}  mode="horizontal" items={items} />
-        <ConfigProvider theme={customTheme}>
+        <Menu style={{
+          minWidth: '80%',
+          color: '#696969',
+          ...fontSettings
+        }}
+              onClick={onClick}
+              selectedKeys={[current]}
+              mode="horizontal"
+              items={items} />
         <Button block>
           Contact
         </Button>
-        </ConfigProvider>
       </Header>
-      <Content className="site-layout" style={{ padding: '0 50px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <div style={{ padding: 24, minHeight: 380, background: colorBgContainer }}>Content</div>
+      <Content className="site-layout" style={{ padding: '0 0px' }}>
+        <Row type="flex" justify="center">
+            <Col span={8}><p className="text-center title">Grow your loyal user base</p>
+          <p className="subtitle">We have created a platform that analyses hundreds of data points during your mobile user acquisition campaign,
+          provides actionable reports and optimises your ROI in real-time. This creates an opportunity of attracting
+            the right users who will stay loyal to the apps</p>
+              <div> <Button>
+                Let's Connect
+              </Button>
+              </div>
+            </Col>
+            <Col span={8}>
+              <img src="/i_phone.png" width='550px'/>
+            </Col>
+        </Row>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>
+    </ConfigProvider>
   </div>
   );
 }
