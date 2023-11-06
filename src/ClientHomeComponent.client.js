@@ -8,6 +8,7 @@ import { Button,  Image } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 const { Header, Content, Footer } = Layout;
 import { ConfigProvider, Card,  Col, Row } from 'antd';
+import ContactForm from "@/components/ContactForm";
 
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import {
@@ -59,11 +60,6 @@ const fontSettings = {
 
 const customTheme = {
   components: {
-    Button: {
-      defaultBorderColor: '#8347e5',
-      defaultColor:'#8347e5',
-
-    },
     Menu: {
       horizontalItemHoverBg: '#eee5ff',
       horizontalItemSelectedColor: "#9c74da"
@@ -77,6 +73,7 @@ function ClientHomeComponent() {
   } = theme.useToken();
 
   const [current, setCurrent] = useState('mail');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const onClick = (e) => {
     console.log('click ', e);
     setCurrent(e.key);
@@ -113,9 +110,10 @@ function ClientHomeComponent() {
               selectedKeys={[current]}
               mode="horizontal"
               items={items} />
-        <Button block>
-          Contact
-        </Button>
+        {/*<Button block>*/}
+        {/*  Contact*/}
+        {/*</Button>*/}
+        <ContactForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
       </Header>
       <Content className="site-layout" style={{ padding: '0 0px' }}>
         <Row type="flex" justify="center">
@@ -123,13 +121,13 @@ function ClientHomeComponent() {
           <p className="subtitle">We have created a platform that analyses hundreds of data points during your mobile user acquisition campaign,
           provides actionable reports and optimises your ROI in real-time. This creates an opportunity of attracting
             the right users who will stay loyal to the apps</p>
-              <div> <Button>
+              <div> <Button className='sbt-button'>
                 Let's Connect
               </Button>
               </div>
             </Col>
             <Col span={8}>
-              <img src="/i_phone.png" width='550px'/>
+              <img className="iphone" src="/i_phone.png" width='550px'/>
             </Col>
         </Row>
       </Content>

@@ -8,3 +8,40 @@
     line-height: 24px;
     color: #24282d;
 }
+h2 {
+    font-family: Inter Semibold,Helvetica,Arial, sans-serif;
+}
+.iphone {
+    filter: hue-rotate(45deg)  saturate(110%);
+}
+
+.sbt-button {
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    background-color: rgba(131, 71, 229, 0.5);
+    color: white;
+    border-color: rgba(131, 71, 229, 0.5);
+}
+
+.sbt-button:hover{
+    background-color: white;
+    color: #8347e5!important;
+    border-color: #8347e5!important;
+}
+.contact-button {
+    width: 200px;
+}
+.contact-button:hover {
+    background-color: rgba(131, 71, 229, 0.5) !important;
+    color: white!important;
+    border-color: rgba(131, 71, 229, 0.5) !important;
+}
+
+.sbm-btn {
+    width: 200px;
+    height: 40px;
+    background-color: rgba(131, 71, 229, 0.5);
+    color: white;
+    border-color: rgba(131, 71, 229, 0.5);
+}
