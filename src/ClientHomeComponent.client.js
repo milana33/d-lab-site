@@ -17,6 +17,7 @@ import {
   AppstoreAddOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
+import {Expertise} from "@/components/Expertise";
 const items = [
   {
     label: 'Expertise',
@@ -130,6 +131,7 @@ function ClientHomeComponent() {
               <img className="iphone" src="/i_phone.png" width='550px'/>
             </Col>
         </Row>
+          <Expertise></Expertise>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>

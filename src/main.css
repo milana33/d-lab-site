@@ -43,3 +43,8 @@ h2 {
     color: white;
     border-color: rgba(131, 71, 229, 0.5);
 }
+
+.swe-img {
+    filter: hue-rotate(55deg);
+}
+
