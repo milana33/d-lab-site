@@ -6,7 +6,6 @@ const customTheme = {
     Button: {
       defaultBorderColor: '#8347e5',
       defaultColor:'#8347e5',
-
     }
   }
 }
@@ -21,7 +20,7 @@ const onFinishFailed = (errorInfo) => {
 };
 
 const layout = {
-  labelCol: { span: 8 },
+  labelCol: { span: 9 },
   wrapperCol: { span: 16 },
 };
 const tailLayout = {
@@ -45,10 +44,10 @@ const ContactForm = () => {
         <Button className="contact-button" onClick={showModal}>
           Contact
         </Button>
-        <Modal width={800} open={isModalOpen} footer={null} onCancel={closeModal}>
+        <Modal width={700} open={isModalOpen} footer={null} onCancel={closeModal}>
           <Flex gap="middle" vertical justify="center" style={{ alignItems: 'center', textAlign: 'center' }}>
-          <h2 style={{ marginBottom: '-10px'}}>LET'S CONNECT</h2>
-            <span className="subtitle">Send us an email with your queries. We are looking forward to hearing from you!</span>
+          <h1 style={{ marginBottom: '-12px'}}>LET'S CONNECT</h1>
+            <span className="subtitle" style={{color: '#696969'}}>Send us an email with your queries. We are looking forward to hearing from you!</span>
             <Form
                 {...layout}
                 form={form}
