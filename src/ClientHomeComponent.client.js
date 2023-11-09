@@ -18,6 +18,7 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import {Expertise} from "@/components/Expertise";
+import {Advertisers} from "@/components/Advertisers";
 const items = [
   {
     label: 'Expertise',
@@ -132,6 +133,7 @@ function ClientHomeComponent() {
             </Col>
         </Row>
           <Expertise></Expertise>
+        <Advertisers></Advertisers>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>

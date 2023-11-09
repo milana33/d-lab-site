@@ -48,3 +48,32 @@ h2 {
     filter: hue-rotate(55deg);
 }
 
+.adv-img {
+    filter: hue-rotate(45deg)  saturate(110%);
+}
+
+.card-description {
+color: #696969
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+    60% {
+        background-position: 600px;
+    }
+    100% {
+        background-position: 600px;
+    }
+}
+
+.card-title-shine {
+    color: transparent;
+    background: linear-gradient(90deg, rgba(131, 71, 229, 0.7) 0%, rgba(150, 148, 148, 0.52) 50%, rgba(18, 185, 154, 0.51) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 2s linear infinite;
+}
+
+
