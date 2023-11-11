@@ -70,10 +70,10 @@ color: #696969
 
 .card-title-shine {
     color: transparent;
-    background: linear-gradient(90deg, rgba(131, 71, 229, 0.7) 0%, rgba(150, 148, 148, 0.52) 50%, rgba(18, 185, 154, 0.51) 100%);
+    background: linear-gradient(90deg, rgba(131, 71, 229, 0.8) 0%, rgba(150, 148, 148, 0.52) 50%, rgba(18, 185, 154, 0.7) 100%);
     background-clip: text;
     -webkit-background-clip: text;
-    animation: shine 2s linear infinite;
+    animation: shine 8s linear infinite;
 }
 
 
