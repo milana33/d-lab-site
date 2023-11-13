@@ -19,6 +19,7 @@ import {
 } from '@ant-design/icons';
 import {Expertise} from "@/components/Expertise";
 import {Advertisers} from "@/components/Advertisers";
+import {SupplyPartners} from "@/components/SupplyPartners";
 const items = [
   {
     label: 'Expertise',
@@ -134,6 +135,7 @@ function ClientHomeComponent() {
         </Row>
           <Expertise></Expertise>
         <Advertisers></Advertisers>
+        <SupplyPartners></SupplyPartners>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>
