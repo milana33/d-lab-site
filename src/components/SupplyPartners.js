@@ -1,6 +1,10 @@
 import {Avatar, Card, Col, Divider, Image, Row, Button} from "antd";
 const { Meta } = Card;
 export const SupplyPartners = () => {
+  const openLinkInNewWindow = () => {
+    // Replace 'https://example.com' with the actual URL you want to open
+    window.open('https://swagger.d-lab.io/', '_blank');
+  };
   return (
       <>
         <Row type="flex" justify="center">
@@ -57,7 +61,8 @@ export const SupplyPartners = () => {
                     <span>
                   <div className="card-description"> To better understand how our API works, please refer to the links
                     below that will help you in the first steps of the integration.</div></span>}/>
-              <Row type="flex" justify="center">    <Button className="sbt-button" key={1}>API doc</Button></Row>
+              <Row type="flex" justify="center">
+                <Button className="sbt-button" key={1} onClick={openLinkInNewWindow}>API doc</Button></Row>
             </Card>
           </Col>
         </Row>

@@ -20,6 +20,7 @@ import {
 import {Expertise} from "@/components/Expertise";
 import {Advertisers} from "@/components/Advertisers";
 import {SupplyPartners} from "@/components/SupplyPartners";
+import {Promotions} from "@/components/Promotions";
 const items = [
   {
     label: 'Expertise',
@@ -136,6 +137,7 @@ function ClientHomeComponent() {
           <Expertise></Expertise>
         <Advertisers></Advertisers>
         <SupplyPartners></SupplyPartners>
+        <Promotions></Promotions>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>

@@ -75,5 +75,8 @@ color: #696969
     -webkit-background-clip: text;
     animation: shine 8s linear infinite;
 }
-
+.carousel-item {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
