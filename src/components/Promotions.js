@@ -25,6 +25,7 @@ export const Promotions = () => {
   };
   return (
       <>
+        <div id="promotions">
         <Row type="flex" justify="center">
           <Row type="flex" justify="center">
             <Col span={14}>
@@ -71,6 +72,7 @@ export const Promotions = () => {
         </Carousel>
           </Col>
         </Row>
+        </div>
       </>
   )
 }

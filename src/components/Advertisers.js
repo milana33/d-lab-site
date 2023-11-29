@@ -3,6 +3,7 @@ const { Meta } = Card;
 export const Advertisers = () => {
   return (
       <>
+        <div id='advertisers'>
       <Row type="flex" justify="center">
         <Col span={13}><p className="text-center title">ADVERTISERS / AGENCIES</p>
         </Col>
@@ -60,6 +61,7 @@ export const Advertisers = () => {
             </Card>
           </Col>
         </Row>
+        </div>
       </>
   )
 }

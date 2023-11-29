@@ -1,7 +1,7 @@
 // ClientHomeComponent.client.js
 "use client"
 
-import { useState} from 'react';
+import { useState, useRef} from 'react';
 import './main.css'
 // import { MantineLogo } from '@mantine/ds';
 import { Button,  Image } from 'antd';
@@ -21,6 +21,7 @@ import {Expertise} from "@/components/Expertise";
 import {Advertisers} from "@/components/Advertisers";
 import {SupplyPartners} from "@/components/SupplyPartners";
 import {Promotions} from "@/components/Promotions";
+import {Imprint} from "@/components/Imprint";
 const items = [
   {
     label: 'Expertise',
@@ -32,7 +33,7 @@ const items = [
   },
   {
     label: 'Supply Partners',
-    key: 'partners',
+    key: 'suppliers',
   },
   {
     label: 'Promotions',
@@ -71,17 +72,26 @@ const customTheme = {
   },
 };
 
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 function ClientHomeComponent() {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
+  const menuRef = useRef();
+
+  const onClick = (e) => {
+    const sectionId = e.key;
+    scrollToSection(sectionId);
+  }
   const [current, setCurrent] = useState('mail');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const onClick = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
 
   return (
   <div>
@@ -105,15 +115,23 @@ function ClientHomeComponent() {
             style={{marginTop: '15px'}}
         />
         </div>
-        <Menu style={{
+        <Menu
+            ref={menuRef}
+            style={{
           minWidth: '80%',
           color: '#696969',
           ...fontSettings
         }}
               onClick={onClick}
-              selectedKeys={[current]}
+            selectedKeys={[]}
               mode="horizontal"
-              items={items} />
+              >
+          {items.map((item) => (
+              <Menu.Item key={item.key}>
+                <a onClick={() => scrollToSection(item.key)}>{item.label}</a>
+              </Menu.Item>
+          ))}
+        </Menu>
         {/*<Button block>*/}
         {/*  Contact*/}
         {/*</Button>*/}
@@ -139,7 +157,7 @@ function ClientHomeComponent() {
         <SupplyPartners></SupplyPartners>
         <Promotions></Promotions>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+      <Imprint></Imprint>
     </Layout>
     </ConfigProvider>
   </div>

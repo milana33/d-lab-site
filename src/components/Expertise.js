@@ -4,6 +4,7 @@ const { Meta } = Card;
 export const Expertise = () => {
   return (
       <>
+        <div id="expertise">
       <Row type="flex" justify="center">
       <Col span={5}><p className="text-center title">EXPERTISE</p>
       </Col>
@@ -95,6 +96,7 @@ export const Expertise = () => {
             </Card>
           </Col>
         </Row>
+        </div>
       </>
   )
 }

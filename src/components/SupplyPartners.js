@@ -7,6 +7,7 @@ export const SupplyPartners = () => {
   };
   return (
       <>
+        <div id="suppliers">
         <Row type="flex" justify="center">
           <Col span={9}><p className="text-center title">SUPPLY PARTNERS</p>
           </Col>
@@ -66,6 +67,7 @@ export const SupplyPartners = () => {
             </Card>
           </Col>
         </Row>
+        </div>
       </>
   )
 }
