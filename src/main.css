@@ -87,3 +87,7 @@ color: #696969
 body {
     margin: 0px!important;
 }
+
+.dark main {
+    background-color: red;
+}

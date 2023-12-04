@@ -7,7 +7,7 @@ import './main.css'
 import { Button,  Image } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 const { Header, Content, Footer } = Layout;
-import { ConfigProvider, Card,  Col, Row } from 'antd';
+import { ConfigProvider, Card,  Col, Row, Switch } from 'antd';
 import ContactForm from "@/components/ContactForm";
 
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
@@ -80,9 +80,25 @@ const scrollToSection = (sectionId) => {
 };
 
 function ClientHomeComponent() {
+  const [darkMode, setDarkMode] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const customTheme = {
+    components: {
+      Menu: {
+        horizontalItemHoverBg: '#eee5ff',
+        horizontalItemSelectedColor: "#9c74da"
+      },
+      // Add other components or update as needed
+    },
+    // Update other theme settings as needed
+    darkMode: darkMode ? 'dark' : 'light',
+  };
+
+
+
 
   const menuRef = useRef();
 
@@ -94,9 +110,9 @@ function ClientHomeComponent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-  <div>
+  <div className={darkMode ? 'dark' : 'light'}>
     <ConfigProvider theme={customTheme}>
-    <Layout>
+    <Layout className={darkMode ? 'dark' : 'light'}>
       <Header
           style={{
             position: 'sticky',
@@ -136,6 +152,11 @@ function ClientHomeComponent() {
         {/*  Contact*/}
         {/*</Button>*/}
         <ContactForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
+        <Switch
+            checked={darkMode}
+            onChange={() => setDarkMode(!darkMode)}
+            style={{ marginLeft: 'auto' }}
+        />
       </Header>
       <Content className="site-layout" style={{ padding: '0 0px' }}>
         <Row type="flex" justify="center">
