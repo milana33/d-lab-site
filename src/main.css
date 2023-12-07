@@ -1,6 +1,30 @@
 .title {
     font-family: Inter Semibold,Helvetica,Arial, sans-serif;
-    font-size: 56px;
+    font-size: 26px;
+}
+
+/* Style for small devices (tablets) */
+@media (min-width: 576px) {
+    .title {
+        font-family: Inter Semibold,Helvetica,Arial, sans-serif;
+        font-size: 50px; /* Adjust width for small devices */
+    }
+}
+
+/* Style for medium devices (desktops) */
+@media (min-width: 768px) {
+    .title {
+        font-family: Inter Semibold,Helvetica,Arial, sans-serif;
+        font-size: 56px;/* Adjust width for medium devices */
+    }
+}
+
+/* Style for large devices (large desktops) */
+@media (min-width: 992px) {
+    .title {
+        font-family: Inter Semibold,Helvetica,Arial, sans-serif;
+        font-size: 56px; /* Adjust width for large devices */
+    }
 }
 .subtitle {
     font-family: Inter,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -91,3 +115,36 @@ body {
 .dark main {
     background-color: red;
 }
+
+
+.spinner {
+    display: flex;
+    justify-content: center; /* Adjust if needed */
+    align-items: center; /* Adjust if needed */
+    flex-wrap: nowrap; /* Prevents wrapping to the next line */
+}
+
+@media (min-width: 768px){
+    .suppliers {
+        margin-top: -17px;
+    }
+}
+
+@media (min-width: 768px){
+    .adv-img {
+        margin-top: -17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .adv-img {
+        max-width: 220px;
+    }
+}
+
+@media (min-width: 768px){
+    .successful-campaigns-sub {
+        margin-top: -50px;
+    }
+}
+

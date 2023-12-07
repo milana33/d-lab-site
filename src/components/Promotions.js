@@ -28,14 +28,14 @@ export const Promotions = () => {
         <div id="promotions">
         <Row type="flex" justify="center">
           <Row type="flex" justify="center">
-            <Col span={14}>
+            <Col xs={24} sm={24} md={14}>
               <p className="text-center title">PROMOTIONS</p>
             </Col>
-            <Col span={14}>
-              <p style={{marginTop:'-50px', color: '#696969', fontSize: "23px"}}>Examples of our successful campaigns</p>
+            <Col xs={24} sm={24} md={14}>
+              <p style={{ color: '#696969', fontSize: "23px"}} className='successful-campaigns-sub'>Examples of our successful campaigns</p>
             </Col>
           </Row>
-          <Col span={20} style={{marginTop: '20px'}}>
+          <Col xs={24} sm={24} md={20} style={{marginTop: '20px'}}>
         <Carousel
             centerMode={true}
             swipeable={false}

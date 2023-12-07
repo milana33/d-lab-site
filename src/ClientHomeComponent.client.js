@@ -1,6 +1,7 @@
 // ClientHomeComponent.client.js
 "use client"
 
+
 import { useState, useRef} from 'react';
 import './main.css'
 // import { MantineLogo } from '@mantine/ds';
@@ -9,6 +10,7 @@ import { Breadcrumb, Layout, Menu, theme } from 'antd';
 const { Header, Content, Footer } = Layout;
 import { ConfigProvider, Card,  Col, Row, Switch } from 'antd';
 import ContactForm from "@/components/ContactForm";
+import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import {
@@ -22,6 +24,7 @@ import {Advertisers} from "@/components/Advertisers";
 import {SupplyPartners} from "@/components/SupplyPartners";
 import {Promotions} from "@/components/Promotions";
 import {Imprint} from "@/components/Imprint";
+import {CompatibleWith} from "@/components/CompatibleWith";
 const items = [
   {
     label: 'Expertise',
@@ -151,16 +154,17 @@ function ClientHomeComponent() {
         {/*<Button block>*/}
         {/*  Contact*/}
         {/*</Button>*/}
-        <ContactForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
         <Switch
             checked={darkMode}
             onChange={() => setDarkMode(!darkMode)}
             style={{ marginLeft: 'auto' }}
         />
+        <ContactForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
       </Header>
-      <Content className="site-layout" style={{ padding: '0 0px' }}>
+
+      <Content style={{ padding: '0 0px' }}>
         <Row type="flex" justify="center">
-            <Col span={8}><p className="text-center title">Grow your loyal user base</p>
+            <Col xs={24} sm={24} md={12} lg={8}><p className="text-center title">Grow your loyal user base</p>
           <p className="subtitle">We have created a platform that analyses hundreds of data points during your mobile user acquisition campaign,
           provides actionable reports and optimises your ROI in real-time. This creates an opportunity of attracting
             the right users who will stay loyal to the apps</p>
@@ -169,14 +173,29 @@ function ClientHomeComponent() {
               </Button>
               </div>
             </Col>
-            <Col span={8}>
+            <Col xs={24} sm={24} md={12} lg={8}>
               <img className="iphone" src="/i_phone.png" width='550px'/>
             </Col>
         </Row>
+        <ParallaxBanner
+            layers={[
+              {
+                image: '/parallax.jpeg',
+                speed: -10,
+                scale: [1, 1.2],
+                opacity: [0.9, 1],
+              }
+            ]}
+            style={{
+              height: '400px'
+            }}
+        >
+        </ParallaxBanner>
           <Expertise></Expertise>
         <Advertisers></Advertisers>
         <SupplyPartners></SupplyPartners>
         <Promotions></Promotions>
+        <CompatibleWith></CompatibleWith>
       </Content>
       <Imprint></Imprint>
     </Layout>

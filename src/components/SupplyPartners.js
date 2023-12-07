@@ -9,11 +9,11 @@ export const SupplyPartners = () => {
       <>
         <div id="suppliers">
         <Row type="flex" justify="center">
-          <Col span={9}><p className="text-center title">SUPPLY PARTNERS</p>
+          <Col xs={24} sm={12} md={9}><p className="text-center title">SUPPLY PARTNERS</p>
           </Col>
         </Row>
         <Row type="flex" justify="center">
-          <Col span={6}>
+          <Col xs={24} sm={24} md={6}>
             <Card>
               <Meta
                   avatar={<Avatar src="/supply-partners/dsp-icon.png " />}
@@ -29,14 +29,14 @@ export const SupplyPartners = () => {
                   </span>}/>
             </Card>
           </Col>
-          <Col>
+          <Col xs={24} sm={24} md={8}>
             <Image
                 alt="suppliers" preview={false}
                 src="/supply-partners/suppliers-img.png"
-                width={550}
-                style={{marginTop:'-37px'}}/>
+                className='suppliers'
+                />
           </Col>
-          <Col span={6}>
+          <Col xs={24} sm={24} md={6}>
             <Card>
               <Meta
                   avatar={<Avatar src="/supply-partners/app-icon.png" />}
@@ -53,7 +53,7 @@ export const SupplyPartners = () => {
           </Col>
         </Row>
         <Row type="flex" justify="center">
-          <Col>
+          <Col xs={24} sm={24} md={12}>
             <Card
             >
               <Meta

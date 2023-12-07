@@ -6,6 +6,7 @@ const { Footer} = Layout;
  export const Imprint = () => {
   return (
       <>
+        <div id='imprint'>
         <Footer style={{ textAlign: 'center', marginTop: '20px'}}>
           <Row justify="space-between" align="middle">
             <Col span={4}>
@@ -35,6 +36,7 @@ const { Footer} = Layout;
             </Col>
           </Row>
         </Footer>
+        </div>
       </>
   )
 }

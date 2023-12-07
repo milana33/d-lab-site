@@ -5,11 +5,11 @@ export const Advertisers = () => {
       <>
         <div id='advertisers'>
       <Row type="flex" justify="center">
-        <Col span={13}><p className="text-center title">ADVERTISERS / AGENCIES</p>
+        <Col xs={24} sm={12} md={13}><p className="text-center title">ADVERTISERS / AGENCIES</p>
         </Col>
       </Row>
         <Row type="flex" justify="center">
-          <Col span={6}>
+          <Col  xs={24} sm={24} md={8}>
             <Card>
                 <Meta
                     avatar={<Avatar src="/advertisers/tracker-icon.png " />}
@@ -23,14 +23,13 @@ export const Advertisers = () => {
                   </span>}/>
           </Card>
           </Col>
-         <Col> <Image
+         <Col xs={24} sm={24} md={8}> <Image
              alt="advertisers" preview={false}
              src="/advertisers/adv-img.png"
              className="adv-img"
-             width={550}
-             style={{marginTop:'-37px'}}/>
+             />
          </Col>
-          <Col span={6}>
+          <Col xs={24} sm={24} md={8}>
             <Card>
             <Meta
                 avatar={<Avatar src="/advertisers/goal-icon.png " />}
@@ -46,7 +45,7 @@ export const Advertisers = () => {
           </Col>
         </Row>
         <Row type="flex" justify="center">
-          <Col span={8}>
+          <Col xs={24} sm={24} md={8}>
             <Card>
               <Meta
                   avatar={<Avatar src="/advertisers/user-icon.png " />}
