@@ -5,7 +5,9 @@
 import { useState, useRef, useEffect} from 'react';
 import './main.css'
 // import { MantineLogo } from '@mantine/ds';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Layout, Menu, theme, Drawer} from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
+
 const { Header, Content, Footer } = Layout;
 import { ConfigProvider, Card,  Col, Row, Switch } from 'antd';
 import ContactForm from "@/components/ContactForm";
@@ -68,6 +70,16 @@ const scrollToSection = (sectionId) => {
 };
 
 function ClientHomeComponent() {
+
+  const [drawerVisible, setDrawerVisible] = useState(false);
+
+  const showDrawer = () => {
+    setDrawerVisible(true);
+  };
+
+  const onClose = () => {
+    setDrawerVisible(false);
+  };
   // const [darkMode, setDarkMode] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('darkMode');
@@ -128,14 +140,48 @@ function ClientHomeComponent() {
             backgroundColor: darkMode ? '#424141' : 'white'
           }}
       >
-        <div>
+        <Row align="middle" style={{ width: '100%' }}>
+
+          {/* Hamburger Icon for Mobile Screens */}
+          <Col xs={2} sm={2} md={0} lg={0} xl={0}>
+          <Button style={{marginLeft: '-10px'}} className="hamburger-button" onClick={showDrawer} icon={<MenuOutlined />} />
+
+          {/* Drawer for Mobile Screens */}
+          <Drawer
+              title="Menu"
+              placement="left"
+              onClose={onClose}
+              visible={drawerVisible}
+          >
+            <Menu
+                mode="vertical"
+                style={{
+                  color: '#696969',
+                  backgroundColor: darkMode ? '#424141' : 'white',
+                  // ...fontSettings
+                }}
+            >
+              {items.map((item) => (
+                  <Menu.Item key={item.key}>
+                    <a onClick={() => {
+                      scrollToSection(item.key);
+                      onClose();
+                    }}>{item.label}</a>
+                  </Menu.Item>
+              ))}
+            </Menu>
+          </Drawer>
+          </Col>
+          <Col xs={8} sm={2} md={2}>
         <img
             src="/d_lab.png"
             width="100px"
             style={{marginTop: '15px'}}
-            className='dark_d_lab'
+            className='d_lab'
         />
-        </div>
+          </Col>
+
+          <Col xs={0} sm={16} md={16} className="desktop-menu">
         <Menu
             ref={menuRef}
             style={{
@@ -154,27 +200,40 @@ function ClientHomeComponent() {
               </Menu.Item>
           ))}
         </Menu>
-        {/*<Button block>*/}
-        {/*  Contact*/}
-        {/*</Button>*/}
+          </Col>
+
+          <Col xs={14} sm={0} md={0} lg={0} xl={0} className="contact-switch-xs">
+            <Switch
+                checked={darkMode}
+                onChange={handleThemeToggle}
+                style={{ marginLeft: 'auto', marginRight: '10px' }}
+                checkedChildren={<FontAwesomeIcon icon={faSun} />}
+                unCheckedChildren={<FontAwesomeIcon icon={faMoon} />}
+            />
+            <ContactForm darkMode={darkMode} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
+          </Col>
+
+          <Col xs={0} sm={6} md={6} style={{ textAlign: 'right'}} className='contact-switch-container'>
         <Switch
             checked={darkMode}
             onChange={handleThemeToggle}
-            style={{ marginLeft: 'auto', marginRight: '10px' }}
+            style={{ marginLeft: 'auto', marginRight: '10px', marginTop: '5px' }}
             checkedChildren={<FontAwesomeIcon icon={faSun} />}
             unCheckedChildren={<FontAwesomeIcon icon={faMoon} />}
         />
         <ContactForm darkMode={darkMode} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
+          </Col>
+        </Row>
       </Header>
 
       <Content style={{ padding: '0 0px' }}>
         <Row type="flex" justify="center">
-            <Col xs={24} sm={24} md={12} lg={8}><p className="text-center title">Grow your loyal user base</p>
+            <Col xs={24} sm={24} md={8}><p className="text-center title">Grow your loyal user base</p>
           <p className="subtitle">We have created a platform that analyses hundreds of data points during your mobile user acquisition campaign,
           provides actionable reports and optimises your ROI in real-time. This creates an opportunity of attracting
             the right users who will stay loyal to the apps.</p>
             </Col>
-            <Col xs={24} sm={24} md={12} lg={8}>
+            <Col xs={24} sm={24} md={8}>
               <img className="iphone" src="/i_phone.png" width='450px'/>
             </Col>
         </Row>

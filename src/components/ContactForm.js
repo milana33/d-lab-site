@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal,  ConfigProvider, Row, Col, Space, Flex, Form, Input, message  } from 'antd';
+import { push, ref } from 'firebase/database';
+import { database } from '../../firebase-config';
 
 const customTheme = {
   components: {
@@ -10,10 +12,21 @@ const customTheme = {
   }
 }
 
-const onFinish = (values) => {
-  console.log('Received values of form: ', values);
-  // Здесь вы можете обработать данные формы, например, отправить на сервер
-};
+// const onFinish = (values) => {
+//   console.log('Received values of form: ', values);
+//   // Здесь вы можете обработать данные формы, например, отправить на сервер
+// };
+
+// const onFinish = async (values) => {
+//   try {
+//     // Допустим, вы используете Realtime Database
+//     await firebase.database().ref('contacts').push(values);
+//     console.log('Data sent successfully to Firebase');
+//   } catch (error) {
+//     console.error('Error sending data to Firebase:', error);
+//   }
+// };
+
 
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
@@ -41,6 +54,20 @@ const ContactForm = ({ darkMode }) => {
 
   const modalStyle = {
     color: darkMode ? 'white' : 'black'
+  };
+
+  const onFinish = async (values) => {
+    try {
+      const contactsRef = ref(database, 'contacts');
+      await push(contactsRef, values);
+      message.success('Your message has been sent successfully!');
+
+      closeModal()
+      console.log('Data sent successfully to Firebase');
+    } catch (error) {
+      console.error('Error sending data to Firebase:', error);
+      message.error('Failed to send the message. Please try again.');
+    }
   };
   return (
       <>
@@ -94,9 +121,13 @@ const ContactForm = ({ darkMode }) => {
               </Form.Item>
 
               <Form.Item {...tailLayout}>
+                <Row>
+                  <Col xs={4}>
                 <Button className="sbt-button" htmlType="submit">
                   Submit
                 </Button>
+                  </Col>
+                </Row>
               </Form.Item>
             </Form>
           </Flex>

@@ -150,7 +150,7 @@ body {
     background-color: #645f5f;
 }
 
-.dark .dark_d_lab {
+.dark .d_lab {
     filter:invert(75%);
 }
 
@@ -201,4 +201,51 @@ body {
 
 .dark .ant-form-item label {
     color: whitesmoke!important;
+}
+
+
+/* Mobile and small screens (less than 768px) */
+@media only screen and (max-width: 767px), screen and (orientation: landscape) {
+    .hamburger-button {
+        display: inline-block; /* Show the hamburger button */
+    }
+    .desktop-menu {
+        display: none; /* Hide the desktop menu */
+    }
+    .contact-switch-xs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .contact-switch-container {
+        display: none; /* Show and adjust the contact-switch container for larger screens */
+    }
+}
+
+/* Larger screens */
+@media only screen and (min-width: 768px) {
+    .hamburger-button {
+        display: none; /* Hide the hamburger button */
+    }
+    .desktop-menu {
+        display: block; /* Show the desktop menu */
+    }
+    .contact-switch-container {
+        display: flex; /* Show and adjust the contact-switch container for larger screens */
+    }
+    .contact-switch-xs {
+        display: none; /* Hide the contact-switch for xs screens in landscape mode */
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .iphone {
+       max-width: 300px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .d_lab {
+        display: none;
+    }
 }
