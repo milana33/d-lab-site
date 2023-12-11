@@ -38,6 +38,9 @@ h2 {
 .iphone {
     filter: hue-rotate(45deg)  saturate(110%);
 }
+.dark .iphone {
+    filter: invert(90%);
+}
 
 .sbt-button {
     margin-top: 20px;
@@ -112,11 +115,6 @@ body {
     margin: 0px!important;
 }
 
-.dark main {
-    background-color: red;
-}
-
-
 .spinner {
     display: flex;
     justify-content: center; /* Adjust if needed */
@@ -148,3 +146,59 @@ body {
     }
 }
 
+.dark main {
+    background-color: #645f5f;
+}
+
+.dark .dark_d_lab {
+    filter:invert(75%);
+}
+
+.dark .title, .dark .subtitle {
+    color: aliceblue;
+}
+
+.dark #imprint, .dark footer {
+    background-color: #424141;
+}
+
+.dark .dlab-icon-footer {
+    filter:invert(75%);
+}
+
+.dark .ant-card-body {
+    background-color: #424141;
+}
+
+.dark .ant-card-meta-title, .dark .ant-card-meta-description, .dark .card-description {
+    color: whitesmoke;
+}
+
+.dark .ant-menu-item-only-child {
+    color: #efefef;
+}
+
+.dark .ant-avatar {
+    filter: invert(90%);
+}
+
+.dark .ant-divider {
+    color: whitesmoke;
+    background-color: whitesmoke;
+}
+
+.dark .adv-img, .dark .suppliers {
+    filter: invert(90%);
+}
+
+.ant-switch-checked {
+    background-color: rgba(210, 137, 253, 0.73) !important;
+}
+
+.dark .ant-modal-content {
+    background-color: #4b4a4a !important;
+}
+
+.dark .ant-form-item label {
+    color: whitesmoke!important;
+}

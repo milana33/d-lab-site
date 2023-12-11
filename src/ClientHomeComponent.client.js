@@ -2,23 +2,17 @@
 "use client"
 
 
-import { useState, useRef} from 'react';
+import { useState, useRef, useEffect} from 'react';
 import './main.css'
 // import { MantineLogo } from '@mantine/ds';
-import { Button,  Image } from 'antd';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Button, Layout, Menu, theme } from 'antd';
 const { Header, Content, Footer } = Layout;
 import { ConfigProvider, Card,  Col, Row, Switch } from 'antd';
 import ContactForm from "@/components/ContactForm";
-import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
+import { ParallaxBanner } from "react-scroll-parallax";
 
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import {
-  UserOutlined,
-  VideoCameraOutlined,
-  AppstoreAddOutlined,
-  SearchOutlined,
-} from '@ant-design/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import {Expertise} from "@/components/Expertise";
 import {Advertisers} from "@/components/Advertisers";
 import {SupplyPartners} from "@/components/SupplyPartners";
@@ -51,15 +45,6 @@ const items = [
   }
 ];
 
-// {
-//   label: (
-//       <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-//         Navigation Four - Link
-//       </a>
-//   ),
-//       key: 'alipay',
-// },
-
 const fontSettings = {
   fontFamily: "Aeonik Pro, sans-serif",
   fontWeight: 500,
@@ -83,7 +68,23 @@ const scrollToSection = (sectionId) => {
 };
 
 function ClientHomeComponent() {
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme !== null) {
+      return JSON.parse(savedTheme);
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
+
+
+  const handleThemeToggle = () => {
+    setDarkMode(!darkMode);
+  };
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -124,7 +125,7 @@ function ClientHomeComponent() {
             width: '100%',
             display: 'flex',
             alignItems: 'center',
-            backgroundColor:'white'
+            backgroundColor: darkMode ? '#424141' : 'white'
           }}
       >
         <div>
@@ -132,6 +133,7 @@ function ClientHomeComponent() {
             src="/d_lab.png"
             width="100px"
             style={{marginTop: '15px'}}
+            className='dark_d_lab'
         />
         </div>
         <Menu
@@ -139,6 +141,7 @@ function ClientHomeComponent() {
             style={{
           minWidth: '80%',
           color: '#696969',
+              backgroundColor: darkMode ? '#424141' : 'white',
           ...fontSettings
         }}
               onClick={onClick}
@@ -156,10 +159,12 @@ function ClientHomeComponent() {
         {/*</Button>*/}
         <Switch
             checked={darkMode}
-            onChange={() => setDarkMode(!darkMode)}
-            style={{ marginLeft: 'auto' }}
+            onChange={handleThemeToggle}
+            style={{ marginLeft: 'auto', marginRight: '10px' }}
+            checkedChildren={<FontAwesomeIcon icon={faSun} />}
+            unCheckedChildren={<FontAwesomeIcon icon={faMoon} />}
         />
-        <ContactForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
+        <ContactForm darkMode={darkMode} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}></ContactForm>
       </Header>
 
       <Content style={{ padding: '0 0px' }}>
@@ -167,21 +172,17 @@ function ClientHomeComponent() {
             <Col xs={24} sm={24} md={12} lg={8}><p className="text-center title">Grow your loyal user base</p>
           <p className="subtitle">We have created a platform that analyses hundreds of data points during your mobile user acquisition campaign,
           provides actionable reports and optimises your ROI in real-time. This creates an opportunity of attracting
-            the right users who will stay loyal to the apps</p>
-              <div> <Button className='sbt-button'>
-                Let's Connect
-              </Button>
-              </div>
+            the right users who will stay loyal to the apps.</p>
             </Col>
             <Col xs={24} sm={24} md={12} lg={8}>
-              <img className="iphone" src="/i_phone.png" width='550px'/>
+              <img className="iphone" src="/i_phone.png" width='450px'/>
             </Col>
         </Row>
         <ParallaxBanner
             layers={[
               {
                 image: '/parallax.jpeg',
-                speed: -10,
+                speed: -20,
                 scale: [1, 1.2],
                 opacity: [0.9, 1],
               }

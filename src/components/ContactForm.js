@@ -28,7 +28,7 @@ const tailLayout = {
 };
 
 
-const ContactForm = () => {
+const ContactForm = ({ darkMode }) => {
   const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -38,16 +38,20 @@ const ContactForm = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const modalStyle = {
+    color: darkMode ? 'white' : 'black'
+  };
   return (
       <>
-        <ConfigProvider theme={customTheme}>
+        <ConfigProvider >
         <Button className="contact-button" onClick={showModal}>
           Contact
         </Button>
-        <Modal width={700} open={isModalOpen} footer={null} onCancel={closeModal}>
+        <Modal getContainer={false} width={700} open={isModalOpen} footer={null} onCancel={closeModal} style={modalStyle} >
           <Flex gap="middle" vertical justify="center" style={{ alignItems: 'center', textAlign: 'center' }}>
           <h1 style={{ marginBottom: '-12px'}}>LET'S CONNECT</h1>
-            <span className="subtitle" style={{color: '#696969'}}>Send us an email with your queries. We are looking forward to hearing from you!</span>
+            <span className="subtitle" style={{color: darkMode ? 'white' : '#696969'}}>Send us an email with your queries. We are looking forward to hearing from you!</span>
             <Form
                 {...layout}
                 form={form}
