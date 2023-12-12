@@ -5,7 +5,7 @@
 import { useState, useRef, useEffect} from 'react';
 import './main.css'
 // import { MantineLogo } from '@mantine/ds';
-import { Button, Layout, Menu, theme, Drawer} from 'antd';
+import { Button, Layout, Menu, theme, Drawer, Image} from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
@@ -151,7 +151,7 @@ function ClientHomeComponent() {
               title="Menu"
               placement="left"
               onClose={onClose}
-              visible={drawerVisible}
+               open={drawerVisible}
           >
             <Menu
                 mode="vertical"
@@ -173,11 +173,12 @@ function ClientHomeComponent() {
           </Drawer>
           </Col>
           <Col xs={8} sm={2} md={2}>
-        <img
+        <Image
+            alt='d-lab'
             src="/d_lab.png"
             width="100px"
-            style={{marginTop: '15px'}}
             className='d_lab'
+            preview={false}
         />
           </Col>
 
@@ -234,7 +235,7 @@ function ClientHomeComponent() {
             the right users who will stay loyal to the apps.</p>
             </Col>
             <Col xs={24} sm={24} md={8}>
-              <img className="iphone" src="/i_phone.png" width='450px'/>
+              <Image preview={false} alt='iphone' className="iphone" src="/i_phone.png" width='450px'/>
             </Col>
         </Row>
         <ParallaxBanner

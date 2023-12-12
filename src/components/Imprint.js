@@ -1,4 +1,4 @@
-import {Layout, Space, Divider, Row, Col} from "antd";
+import {Layout, Space, Divider, Row, Col, Image} from "antd";
 import {LinkedinOutlined,TwitterOutlined } from '@ant-design/icons';
 
 
@@ -10,7 +10,7 @@ const { Footer} = Layout;
         <Footer style={{ textAlign: 'center', marginTop: '20px'}}>
           <Row justify="space-between" align="middle">
             <Col span={4}>
-              <img src="/d_lab.png" className='dlab-icon-footer' alt="Logo" width="100px" />
+              <Image src="/d_lab.png" preview={false} className='dlab-icon-footer' alt="Logo" width="100px" />
             </Col>
             <Col span={5}>
               <Row justify="center">

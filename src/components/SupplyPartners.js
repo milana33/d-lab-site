@@ -57,7 +57,7 @@ export const SupplyPartners = () => {
             <Card
             >
               <Meta
-                  avatar={<img src="/supply-partners/API-icon.svg" style={{width:'35px'}}/>}
+                  avatar={<Image alt='api-icon' src="/supply-partners/API-icon.svg" style={{width:'35px'}}/>}
                   description= {
                     <span>
                   <div className="card-description"> To better understand how our API works, please refer to the links
