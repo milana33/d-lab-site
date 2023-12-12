@@ -80,19 +80,19 @@ function ClientHomeComponent() {
   const onClose = () => {
     setDrawerVisible(false);
   };
-  // const [darkMode, setDarkMode] = useState(false);
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme !== null) {
-      return JSON.parse(savedTheme);
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
-  useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-  }, [darkMode]);
-
+  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(() => {
+  //   const savedTheme = localStorage.getItem('darkMode');
+  //   if (savedTheme !== null) {
+  //     return JSON.parse(savedTheme);
+  //   }
+  //   return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // });
+  //
+  // useEffect(() => {
+  //   localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  // }, [darkMode]);
+  //
 
   const handleThemeToggle = () => {
     setDarkMode(!darkMode);
